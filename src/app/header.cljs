@@ -14,7 +14,7 @@
 
 (defn menu [items]
   [:div {:class "main_nav my-2"}
-   (for [item items]
+   (for [item items] ^{:key (:href item)}
    [:a 
     {:href (:href item)
      :class "m-2 btn btn-primary"}
