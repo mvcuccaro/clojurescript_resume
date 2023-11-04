@@ -1,6 +1,10 @@
 (ns app.header
   (:require [reagent.core :as r]))
 
+(def menu-links '(
+                  {:href "/#/about" :body "About Me"}
+                  {:href "/#/sandbox" :body "Sandbox"}
+                  {:href "https://www.michaelcuccaro.com" :body "VueJS Site"}))
 
 (defn banner []
   [:div {:class "col-12 p-3 bg-secondary"
@@ -8,9 +12,10 @@
    [:div
     [:h3 "cljs.michaelcuccaro.com"]]])
 
-(defn menu []
+(defn menu [items]
   [:div {:class "main_nav my-2"}
-   [:a {:href "/#/about" :class "m-2 btn btn-primary"} "About Me"]
-   [:a {:href "/#/sandbox" :class "m-2 btn btn-primary"} "Clojure Sandbox"]
-   [:a {:href "https://www.michaelcuccaro.com" :class "m-2 btn btn-primary"} "VueJS Site"]
-   ])
+   (for [item items]
+   [:a 
+    {:href (:href item)
+     :class "m-2 btn btn-primary"}
+    (:body item)])])

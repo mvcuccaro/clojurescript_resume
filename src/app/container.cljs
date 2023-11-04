@@ -27,5 +27,5 @@
 (defn container []
   [:<>
    [header/banner]
-   [header/menu]
+   [header/menu header/menu-links]
    [(getView arender)]])
