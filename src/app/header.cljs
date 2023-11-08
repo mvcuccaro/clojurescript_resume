@@ -4,6 +4,7 @@
 (def menu-links '(
                   {:href "/#/about" :body "About Me"}
                   {:href "/#/sandbox" :body "Sandbox"}
+                  {:href "/#/resume" :body "Resume"}
                   {:href "https://www.michaelcuccaro.com" :body "VueJS Site"}))
 
 (defn banner []

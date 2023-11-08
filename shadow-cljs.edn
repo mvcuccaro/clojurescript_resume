@@ -14,9 +14,12 @@
   :e2e {:ns-regexp "e2e.*"
         :output-to "out/e2e.js"
         :target :node-test}}
+ 
  :dependencies [[reagent "0.8.1"]
                 [devcards "0.2.6"]
-                [markdown-to-hiccup "0.6.2"]]
- :dev-http {3000 "public"}
+                [markdown-to-hiccup "0.6.2"]
+                [cljs-http "0.1.48"]]
+ :dev-http {3000 {:root "public" :proxy-url "http://localhost:3001"}}
+ 
  :nrepl {:port 3333}
  :source-paths ["src"]}

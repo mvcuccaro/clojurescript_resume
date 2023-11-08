@@ -3,7 +3,8 @@
               [app.header :as header]
               [app.views.about :as about]
               [app.views.dashboard :as dashboard]
-              [app.views.sandbox :as sandbox]))
+              [app.views.sandbox :as sandbox]
+              [app.views.resume :as resume]))
 
 (def routes
   (into #{} '(:about {:name "About" :path "/about"})))
@@ -21,6 +22,7 @@
       "about" about/main
       "dashboard" dashboard/main
       "sandbox" sandbox/main
+      "resume" resume/main
       about/main)))
 
 
