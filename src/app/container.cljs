@@ -27,7 +27,7 @@
 
 
 (defn container []
-  [:<>
+  [:div {:class "m-1 pb-2 shadow col-xl-10"}
    [header/banner]
    [header/menu header/menu-links]
    [(getView arender)]])
