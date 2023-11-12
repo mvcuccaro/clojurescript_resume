@@ -15,6 +15,6 @@
 (defn apicall []
 (go
   (let [response (<! (http/get fakeapiurl))]
-    (js/console.log 
-     (->> (response)
-          (clj->js))))))
+    (js/console.log (:body response))
+     (->> (:body response)
+          (clj->js)))))
