@@ -8,10 +8,10 @@
                   {:href "https://www.michaelcuccaro.com" :body "VueJS Site"}))
 
 (defn banner []
-  [:div {:class "col-12 p-3 bg-secondary"
-         :on-click #((js/alert 'click))}
+  [:div {:id "banner":class "col-12 p-3"}
    [:div
-    [:h3 "cljs.michaelcuccaro.com"]]])
+    [:div {:class "text-primary"}"cljs.michaelcuccaro.com"]
+    [:div {:id "subheading" :class "ms-2"} "A dynamic resume written in Clojure and Clojurescript"]]])
 
 (defn menu [items]
   [:div {:class "main_nav my-2"}
