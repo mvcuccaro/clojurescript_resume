@@ -1,7 +1,7 @@
 (ns app.components.layouts)
 
 (defn page [content title]
-  [:div {:class "m-2 px-1 pb-4 border shadow-lg"}
+  [:div {:class "m-2 px-1 pb-4 border shadow-lg page"}
    (when title [:h2 {:class "m-3"} title])
    content])
 

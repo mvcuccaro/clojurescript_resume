@@ -1,5 +1,20 @@
 body {
-    font-family: 'Courier New', Courier, monospace
+    font-family: 'Courier New', Courier, monospace;
+    background-color:white;
+}
+
+#app {
+    height:100vh;
+    background-color:white;
+}
+
+.route-container {
+    min-height:400px !important;
+    background-color:white;
+}
+
+.page {
+    min-height:400px;
 }
 
 #banner {
@@ -16,6 +31,15 @@ body {
 #banner #subheading {
     font-size:22px;
     text-shadow: darkgrey 2px 2px
+}
+
+.menu-item {
+    min-width:100px;
+    margin-right:2px !important;
+}
+
+.legacy {
+    margin-right:10px !important;
 }
 
 .section_title {

@@ -15,8 +15,7 @@
            (when (:thumbnail item)
              [:img 
               {:src (:thumbnail item)
-               :class "img-fluid"}])]
-          ]])])
+               :class "img-fluid"}])]]])])
 
 (defn main []
   [:<> [layouts/page 
