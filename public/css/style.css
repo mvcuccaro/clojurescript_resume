@@ -4,7 +4,8 @@ body {
 
 #banner {
     background-color: lightgrey;
-    background-image:url('/app_images/header.avif');
+    background-size:cover;
+    background-image:url('/app_images/header.png');
     color:whitesmoke;
     text-shadow: lightgrey 1px 1px;
     font-weight:bold;
@@ -14,5 +15,5 @@ body {
 
 #banner #subheading {
     font-size:22px;
-    text-shadow: grey 1px 1px
+    text-shadow: darkgrey 2px 2px
 }
