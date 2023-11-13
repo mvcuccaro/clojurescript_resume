@@ -1,20 +1,7 @@
 (ns app.views.sandbox
-  (:require [app.components.md5er :as md5er])
-  (:require-macros [cljs.core.async.macros :refer [go]])
-  (:require [cljs-http.client :as http]
-            [cljs.core.async :refer [<!]]))
+  (:require [app.components.md5er :as md5er]
+            [app.components.layouts :as layouts]))
 
 (defn main []
-  [:div {:class "m-4"}
-   [:div {:class "h1"} "Sandbox"]
-   [:hr]
-   [md5er/main]])
-
-(def fakeapiurl "/api/users")
-
-(defn apicall []
-(go
-  (let [response (<! (http/get fakeapiurl))]
-    (js/console.log (:body response))
-     (->> (:body response)
-          (clj->js)))))
+  [:<> [layouts/page
+   [md5er/main] ":Component-Sandbox"]])

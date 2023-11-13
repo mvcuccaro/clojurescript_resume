@@ -17,3 +17,13 @@ body {
     font-size:22px;
     text-shadow: darkgrey 2px 2px
 }
+
+.section_title {
+    color:white;
+}
+
+.isactive {
+    border:1px solid yellow !important;
+    background-color:darkred !important;
+    color:white;
+}

@@ -1,5 +1,7 @@
 (ns app.views.resume
-  (:require[app.state.state :as state]))
+  (:require [app.state.state :as state]
+            [app.components.layouts :as layouts]
+   ))
 
 (defn work-history []
   [:ul {:class "mx-2 mt-4"}
@@ -17,10 +19,7 @@
           ]])])
 
 (defn main []
-  [:div {:class "m-4 px-1 pb-4 border shadow-lg"}
-     [:div
-      [:div {:class "ps-3 p-2 pt-3 m-2 bg-primary h4"} "Work History"]
-      [:div {:class "m-3"}
-       [work-history]]]])
+  [:<> [layouts/page 
+        [layouts/section-container "Work History" [work-history]] ":Resume" ]])
 
 (state/apicall state/work-history)

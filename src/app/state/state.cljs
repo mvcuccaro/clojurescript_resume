@@ -4,6 +4,7 @@
             [reagent.core :as r]))
 
 (def work-history (r/atom []))
+(def active-menu-item (r/atom 1))
 
 (defn apicall [state-container]
   (go (let [response (<! (http/get "/api/work_history"))]

@@ -1,11 +1,15 @@
 (ns app.header
-  (:require [reagent.core :as r]))
+  (:require [reagent.core :as r]
+            [app.state.state :as state]))
 
-(def menu-links '(
-                  {:href "/#/about" :body "About Me"}
-                  {:href "/#/sandbox" :body "Sandbox"}
-                  {:href "/#/resume" :body "Resume"}
-                  {:href "https://www.michaelcuccaro.com" :body "VueJS Site"}))
+(def menu-links [
+                  {:href "/#/about" :body "About Me" :menu-id 1}
+                  {:href "/#/resume" :body "Resume" :menu-id 2}
+                  {:href "/#/sandbox" :body "Sandbox" :menu-id 3}
+                  {:href "https://www.michaelcuccaro.com" :body "VueJS Site"}])
+
+(defn update-active-menu-item [{menu-id :menu-id} active]
+  (reset! active menu-id))
 
 (defn banner []
   [:div {:id "banner":class "col-12 p-3"}
@@ -15,8 +19,11 @@
 
 (defn menu [items]
   [:div {:class "main_nav my-2"}
-   (for [item items] ^{:key (:href item)}
+   (doall (for [item items] ^{:key (:href item)}
    [:a 
     {:href (:href item)
-     :class "m-2 btn btn-primary"}
-    (:body item)])])
+     :class (str "m-2 btn btn-primary "
+                 (when 
+                  (= (:menu-id item) @state/active-menu-item) "isactive"))
+     :on-click #(update-active-menu-item item state/active-menu-item) }
+    (:body item)]))])
