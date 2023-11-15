@@ -3,5 +3,5 @@
             [app.components.layouts :as layouts]))
 
 (defn main []
-  [:<> [layouts/page
-   [md5er/main] ":Component-Sandbox"]])
+  [:<> [layouts/page ":Component-Sandbox"
+        [md5er/main]]])

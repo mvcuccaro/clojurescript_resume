@@ -3,9 +3,10 @@
             [app.state.state :as state]))
 
 (def menu-links [
-                  {:href "/#/about" :body "About" :menu-id 1}
-                  {:href "/#/resume" :body "Resume" :menu-id 2}
-                  {:href "/#/sandbox" :body "Sandbox" :menu-id 3}])
+                 {:href "/#/about" :body "About" :menu-id 1}
+                 {:href "/#/resume" :body "Resume" :menu-id 2}
+                 {:href "/#/portfolio" :body "Portfolio" :menu-id 3}
+                 {:href "/#/sandbox" :body "Sandbox" :menu-id 4}])
 
 (defn update-active-menu-item [{menu-id :menu-id} active]
   (reset! active menu-id))

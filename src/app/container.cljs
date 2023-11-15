@@ -4,7 +4,8 @@
               [app.views.about :as about]
               [app.views.dashboard :as dashboard]
               [app.views.sandbox :as sandbox]
-              [app.views.resume :as resume]))
+              [app.views.resume :as resume]
+              [app.views.portfolio :as portfolio]))
 
 (def routes
   (into #{} '(:about {:name "About" :path "/about"})))
@@ -23,6 +24,7 @@
       "dashboard" dashboard/main
       "sandbox" sandbox/main
       "resume" resume/main
+      "portfolio" portfolio/main
       about/main)))
 
 
