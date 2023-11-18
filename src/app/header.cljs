@@ -1,12 +1,6 @@
 (ns app.header
-  (:require [reagent.core :as r]
-            [app.state.state :as state]))
-
-(def menu-links [
-                 {:href "/#/about" :body "About" :menu-id 1}
-                 {:href "/#/resume" :body "Resume" :menu-id 2}
-                 {:href "/#/portfolio" :body "Portfolio" :menu-id 3}
-                 {:href "/#/sandbox" :body "Sandbox" :menu-id 4}])
+  (:require 
+   [app.state.state :as state]))
 
 (defn update-active-menu-item [{menu-id :menu-id} active]
   (reset! active menu-id))
@@ -30,5 +24,4 @@
            (:body item)]))]
    [:div {:class "main_nav my-2 col-sm-4 text-end"}
     [:a {:class "m-2 btn btn-primary menu-item legacy"
-         :href "https://www.michaelcuccaro.com"} "...to VueJS Site"]]
-   ])
+         :href "https://www.michaelcuccaro.com"} "...to VueJS Site"]]])

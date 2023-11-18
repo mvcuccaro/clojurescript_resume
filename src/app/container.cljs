@@ -5,17 +5,15 @@
               [app.views.dashboard :as dashboard]
               [app.views.sandbox :as sandbox]
               [app.views.resume :as resume]
-              [app.views.portfolio :as portfolio]))
+              [app.views.portfolio :as portfolio]
+              [app.constants.menu :as menu]))
 
-(def routes
-  (into #{} '(:about {:name "About" :path "/about"})))
 
+;;force the container to rerender on route change
 (def arender (r/atom 0))
-
 (js/window.addEventListener "hashchange" #(swap! arender inc))
 
 (defn getView [arender]
-  (js/console.log (. js/document -location.hash))
   (let [view (second 
               (re-find #"#/(.+)" (. js/document -location.hash)))]
     (js/console.log @arender)
@@ -31,5 +29,5 @@
 (defn container []
   [:div {:class "m-1 pb-2 shadow col-xl-10 route-container"}
    [header/banner]
-   [header/menu header/menu-links]
+   [header/menu menu/menu-links]
    [(getView arender)]])

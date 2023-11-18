@@ -8,9 +8,6 @@
        (m/md->hiccup)
        (m/component)))
 
-
-(js/console.log about-html)
-
 (defn main []
   [:<> [layouts/page ":About"
         [:div
