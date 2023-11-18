@@ -24,4 +24,4 @@
            (:body item)]))]
    [:div {:class "main_nav my-2 col-sm-4 text-end"}
     [:a {:class "m-2 btn btn-primary menu-item legacy"
-         :href "https://www.michaelcuccaro.com"} "...to VueJS Site"]]])
+         :href "https://www.michaelcuccaro.com"} "to VueJS Site..."]]])
