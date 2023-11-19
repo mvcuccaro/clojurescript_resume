@@ -14,10 +14,11 @@
          (goog.crypt/byteArrayToHex))))
 
 (defn main []
-  [:<> [layouts/section-container "MD5 Hasher"
-        [:div
+  [:div [layouts/section-container "MD5 Hasher"
+        [:div 
          [:span "Input: "]
-         [:input {:type "text"
+         [:input {:class "form-control mb-3"
+                  :type "text"
                   :value @hashin
                   :on-change #(reset! hashin (-> % .-target .-value))}]
          [:div (str "MD5 Hash: " (mymd5 @hashin))]]]]

@@ -13,7 +13,7 @@
    [:source {:src video :type "video/mp4"}]])
 
 (defn page [title content]
-  [:div {:class "m-2 px-1 pb-4 border shadow-lg page"}
+  [:div {:class "m-2 px-1 pb-4 border shadow-lg page fade-in"}
    (when title [:h2 {:class "m-3"} title])
    content])
 

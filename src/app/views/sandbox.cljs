@@ -3,5 +3,7 @@
             [app.components.layouts :as layouts]))
 
 (defn main []
-  [:<> [layouts/page ":Component-Sandbox"
-        [md5er/main]]])
+  [:<> [layouts/page ":Component-Sandbox" 
+        [:div {:class "row"}
+         [:div {:class "col-sm-6"}
+          [md5er/main]]]]])
