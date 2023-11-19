@@ -11,7 +11,7 @@
 (defn banner []
   [:div {:id "banner":class "col-12 p-3"}
    [:div
-    [:div {:class "text-primary"}"cljs.michaelcuccaro.com"]
+    [:div {:class "text-primary"}"www.michaelcuccaro.com"]
     [:div {:id "subheading" :class "ms-2"} "A dynamic resume written in Clojure and Clojurescript"]]])
 
 (defn menu [items]
@@ -31,7 +31,7 @@
      "m-2 btn btn-primary menu-item"
      "Github")
     (add-static-menu-item
-     "https://www.michaelcuccaro.com"
+     "http://vue.michaelcuccaro.com"
      "m-2 btn btn-primary menu-item"
      "VueJS Site")
     (add-static-menu-item
