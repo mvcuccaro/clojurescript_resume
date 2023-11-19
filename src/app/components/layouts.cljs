@@ -19,7 +19,7 @@
 
 (defn section-container [title content]
   [:div {:class "m-4 px-1 pb-4 border shadow-lg"}
-   [:div
+   [:div {:class "h-100"}
     [:div {:class "ps-3 p-2 pt-3 m-2 bg-primary h4 section_title"} title]
     [:div {:class "m-3"}
      content]]])
