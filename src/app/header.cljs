@@ -1,8 +1,10 @@
 (ns app.header
   (:require 
-   [app.state.state :as state]))
+   [app.state.state :as state]
+   [app.utilities.logging :as logging]))
 
 (defn update-active-menu-item [{menu-id :menu-id} active]
+  (logging/log (str "/log/" menu-id))
   (reset! active menu-id))
 
 (defn add-static-menu-item [url classes body]
