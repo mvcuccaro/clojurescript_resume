@@ -2,18 +2,21 @@
   (:require [reagent.core :as r]))
 
 (defn tabs [tabs default-value]
-  [:div
-   [:cds-tabs {:value default-value :class "h-100"}
-    (doall 
-     (for [tab tabs] ^{:key (->> (:name tab) (str (rand)))}
-          [:cds-tab {:target (:target tab) :value (:value tab)} (:name tab)]))]
-   [:div.m-4
-    (doall
-     (for [tab tabs] ^{:key (->> (:name tab) (str (rand)) )}
-          [:div {:id (:target tab)
-                 :role "tabpanel"
-                 :hidden true
-                 :dangerouslySetInnerHTML {:__html (:body tab)}}]))]])
+  (fn []
+    (let [uid (str (random-uuid))]
+     [:div
+      [:cds-tabs {:value default-value}
+       (doall
+        (for [tab tabs] ^{:key (->> (:name tab) (str (rand)))}
+             [:cds-tab {:target (str (:target tab) uid)
+                        :value (:value tab)} (:name tab)]))]
+      [:div.m-4
+       (doall
+        (for [tab tabs] ^{:key (->> (:name tab) (str (rand)))}
+             [:div {:id (str (:target tab) uid)
+                    :role "tabpanel"
+                    :hidden true
+                    :dangerouslySetInnerHTML {:__html (:body tab)}}]))]])))
 
 ;; (defn tabs2
 ;;   []
