@@ -17,10 +17,10 @@
    (when title [:h2 {:class "m-3"} title])
    content])
 
-(defn section-container [title content]
+(defn section-container [props content]
   [:div {:class "m-4 px-1 pb-4 border shadow-lg"}
    [:div {:class "h-100"}
-    [:div {:class "ps-3 p-2 pt-3 m-2 bg-primary h4 section_title"} title]
+    [:div {:class "ps-3 p-2 pt-3 m-2 bg-primary h4 section_title"} (:title props)]
     [:div {:class "m-3"}
      content]]])
 

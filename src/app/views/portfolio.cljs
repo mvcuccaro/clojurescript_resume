@@ -13,7 +13,7 @@
 (defn main [] 
   [:<> 
    [layouts/page ":Portfolio"
-    [layouts/section-container "Applications"
+    [layouts/section-container {:title "Applications"}
      [:ul
       (for [item (reduce conj (reverse @state/portfolio) static-items)] ^{:key (:id item)}
       [layouts/rich-list-item item])]]]])

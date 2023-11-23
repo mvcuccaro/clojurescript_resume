@@ -12,9 +12,9 @@
 (defn main []
   [:<> [layouts/page ":About"
         [:div
-         [layouts/section-container "Me" 
+         [layouts/section-container {:title "Me"}
           [:div {:class "row"}
            [:div {:class "col-sm-9" :dangerouslySetInnerHTML {:__html text/about-me}}]
            [:div {:class "col-sm-3 image-fluid"}
             [:img {:src "/app_images/mnt.jpg" :class "img-fluid" :style {:border-radius "50%"}}]]]]
-         [layouts/section-container "Clojure" about-html]]]])
+         [layouts/section-container {:title "Clojure"} about-html]]]])

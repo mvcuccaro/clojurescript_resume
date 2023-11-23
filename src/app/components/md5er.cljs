@@ -14,7 +14,7 @@
   (let [hashin (r/atom "")]
     (fn []
       [:div {:class "h-100"}
-       [layouts/section-container "MD5 Hasher"
+       [layouts/section-container {:title "MD5 Hasher"}
         [:div
          [:span "Input: "]
          [:input {:class "form-control mb-3"

@@ -25,6 +25,6 @@
 
 (defn main []
   [:<> [layouts/page ":Resume" 
-        [layouts/section-container "Work History" [work-history]]]])
+        [layouts/section-container {:title "Work History"} [work-history]]]])
 
 (state/search "/api/work_history" state/work-history)
