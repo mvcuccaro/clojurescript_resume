@@ -29,7 +29,8 @@
         [:div {:class "m-1 w-75"}
          [tabs/tabs2 {:alt "Test" :default-value 1}
           [tabs/tab2 {:name "tab name" :value 1}
-           [:div "Now is the time for all good men"]]
+           [:div 
+            "Now is the time " [:a {:href "#"} "mylink"]]]
           [tabs/tab2 {:name "tab name 2" :value 2}
            [:div "Do you want to sing a song fiona?"]]]]]]]]]]))
 

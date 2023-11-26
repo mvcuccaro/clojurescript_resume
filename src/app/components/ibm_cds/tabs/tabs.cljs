@@ -1,6 +1,7 @@
 (ns app.components.ibm-cds.tabs.tabs
   (:require [reagent.core :as r]
-            [cljs.pprint :as pp]))
+            [cljs.pprint :as pp]
+            [clojure.string :as string]))
 
 (defn render-body [children uuid]
 [:div.m-4
@@ -34,12 +35,13 @@
    {
     :component-did-mount
     (fn [this]
-      (pp/pprint this))
+      ;;(pp/pprint this)
+      )
     
     :reagent-render
     (fn [props body]
       [:div {:role "tabpanel"
-             :hidden false
+             :hidden true
              :id (:id props)
              :name (:name props )} body])
     }))
@@ -66,15 +68,19 @@
                   :let [secondtab (second tab)
                         name (:name secondtab)
                         value (:value secondtab)
-                        target (str (:target secondtab) uuid)]]
-              ^{:key (->> (:name (second tab)) (str (rand)))}
+                        target (-> name (clojure.string/replace #"\s+" "")(str uuid))]]
+              ^{:key (-> (:name (second tab)) (str (rand)))}
               [:cds-tab {:target target
                          :value value} name]))]
           [:div {:class "m-4" :style {:font-weight "bold"}}
            (doall
-            (for [tab children] ^{:key (rand)}
+            (for [tab children
+                  :let [secondtab (second tab)
+                        name (:name secondtab)
+                        target (-> name (clojure.string/replace #"\s+" "")(str uuid))
+                        x (pp/pprint secondtab)]] ^{:key (rand)}
                  [tab2 {:uuid uuid
-                        :id (str (:target (first tab)))} (nth tab 2)]
+                        :id target} (nth tab 2)]
                  ))]]))
       })))
         
