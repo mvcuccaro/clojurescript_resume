@@ -3,6 +3,11 @@
             [cljs.pprint :as pp]
             [clojure.string :as string]))
 
+(defn make-target [name uuid]
+  (-> name 
+      (string/replace #"\s+" "")
+      (str uuid)))
+
 (defn render-body [children uuid]
 [:div.m-4
  (doall
@@ -30,14 +35,9 @@
                      :dangerouslySetInnerHTML {:__html (:body tab)}}]))]])))
 
 (defn tab2
-  [props tab]
+  []
   (r/create-class
    {
-    :component-did-mount
-    (fn [this]
-      ;;(pp/pprint this)
-      )
-    
     :reagent-render
     (fn [props body]
       [:div {:role "tabpanel"
@@ -48,19 +48,12 @@
 
 (defn tabs2
   [props]
-  (let [uuid (str (random-uuid))
-        mounted-tabs (r/atom [])]
+  (let [uuid (str (random-uuid))]
     (r/create-class
      {:display-name "tabs2"
-      ;;:component-did-mount
-      ;; (fn [this]
-      ;;   (let [props (r/props this)
-      ;;         children (r/children this)] 
-      ;;     (pp/pprint children)))
       :reagent-render
       (fn []
-        (let [children (r/children (r/current-component))
-              x (pp/pprint children)]
+        (let [children (r/children (r/current-component))]
           [:div 
           [:cds-tabs {:value (:default-value props)}
            (doall
@@ -68,20 +61,19 @@
                   :let [secondtab (second tab)
                         name (:name secondtab)
                         value (:value secondtab)
-                        target (-> name (clojure.string/replace #"\s+" "")(str uuid))]]
+                        target (make-target name uuid)]]
               ^{:key (-> (:name (second tab)) (str (rand)))}
               [:cds-tab {:target target
                          :value value} name]))]
-          [:div {:class "m-4" :style {:font-weight "bold"}}
+          [:div {:class "m-3"}
            (doall
             (for [tab children
                   :let [secondtab (second tab)
                         name (:name secondtab)
-                        target (-> name (clojure.string/replace #"\s+" "")(str uuid))
-                        x (pp/pprint secondtab)]] ^{:key (rand)}
-                 [tab2 {:uuid uuid
-                        :id target} (nth tab 2)]
-                 ))]]))
+                        target (make-target name uuid)]]
+              ^{:key (rand)}
+              [tab2 {:uuid uuid
+                     :id target} (nth tab 2)]))]]))
       })))
         
            
