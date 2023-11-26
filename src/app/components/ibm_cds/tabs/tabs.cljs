@@ -73,8 +73,7 @@
                         target (make-target name uuid)]]
               ^{:key (rand)}
               [tab2 {:uuid uuid
-                     :id target} (nth tab 2)]))]]))
-      })))
+                     :id target} (nth tab 2)]))]]))})))
         
            
            
