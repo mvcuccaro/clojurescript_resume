@@ -49,9 +49,9 @@
            [modal/modal {:show show-modal  :title "My title" :label "This is the label"} "Now is the time for all good men ...."]]]]
         
         [:div.col-sm-6
-         [layouts/section-container {:title "IBM  Carbon Accordian Reagent Port"}
+         [layouts/section-container {:title "IBM  Carbon Accordion Reagent Port"}
           [:div.m-1.w-75
            [accordion/accordion {}
             [:<>
              [accordion/accordion-item {:title "Accordion item 1"} "Important safety tip... Its actually spelled Accordion not Accordian"]
-             [accordion/accordion-item {:title "Accordian item 2"} "Weird Al Yankovic is the all time master of Accordion... not Accordian"]]]]]]]]]]])))
+             [accordion/accordion-item {:title "Accordion item 2"} "Weird Al Yankovic is the all time master of Accordion... not Accordian"]]]]]]]]]]])))
