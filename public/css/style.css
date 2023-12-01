@@ -45,6 +45,10 @@ body {
     color:white;
 }
 
+.minh300 {
+    min-height:300px;
+}
+
 .isactive {
     border:1px solid yellow !important;
     background-color:darkred !important;

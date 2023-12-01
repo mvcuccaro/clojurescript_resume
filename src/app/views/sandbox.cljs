@@ -30,11 +30,11 @@
         [:div.row.no-gutters
          [:div.col-sm-6
           (get-section "IBM Carbon Tabs Reagent Port - list driven"
-                       [:div.m-1.w-75 {:style {:min-height "300px"}}
+                       [:div.m-1.w-75.minh300
                         [tabs/tabs mytabs 1]])]
          [:div.col-sm-6
           [layouts/section-container {:title "IBM Carbon Tabs Reagent Port - hiccup driven"}
-           [:div.m-1.w-75 {:style {:min-height "300px"}}
+           [:div.m-1.minh300
             [tabs/tabs2 {:alt "Test" :default-value 1}
              [tabs/tab2 {:name "tab name" :value 1}
               [:div 
@@ -44,13 +44,13 @@
         [:div.row.no-gutters
          [:div.col-sm-6
          [layouts/section-container {:title "IBM Carbon Modal Reagent Port"}
-          [:div {:class "m-1 w-75"}
+          [:div.m-1.minh300
            [button/button {:type "danger" :kind "tertiary" :on-click #((when (false? @show-modal) (swap! show-modal not)))} "Show Modal"]
            [modal/modal {:show show-modal  :title "My title" :label "This is the label"} "Now is the time for all good men ...."]]]]
         
         [:div.col-sm-6
          [layouts/section-container {:title "IBM  Carbon Accordion Reagent Port"}
-          [:div.m-1.w-75
+          [:div.m-1.minh300
            [accordion/accordion {}
             [:<>
              [accordion/accordion-item {:title "Accordion item 1"} "Important safety tip... Its actually spelled Accordion not Accordian"]
