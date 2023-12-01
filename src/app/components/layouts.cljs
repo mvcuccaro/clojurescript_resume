@@ -9,37 +9,35 @@
    :allowFullScreen ""}])
 
 (defn parse-video [{video :video}]
-  [:video {:class "myvids" :controls true}
+  [:video.myvids {:controls true}
    [:source {:src video :type "video/mp4"}]])
 
 (defn page [title content]
-  [:div {:class "m-4 px-1 pb-4 border shadow-lg page fade-in"}
-   (when title [:h2 {:class "m-3"} title])
+  [:div.m-4.px-1.pb-4.border.shadow-lg.page.fade-in
+   (when title [:h2.m-3 title])
    content])
 
 (defn section-container [props content]
-  [:div {:class "my-3 mx-1 px-1 pb-4 border shadow-lg"}
-   [:div {:class "h-100"}
-    [:div {:class "ps-3 p-2 pt-3 m-2 bg-primary h4 section_title"} (:title props)]
-    [:div {:class "m-3"}
+  [:div.my-3.mx-1.px-1.pb-4.border.shadow-lg
+   [:div.h-100
+    [:div.ps-3.p-2.pt-3.m-2.bg-primary.h4.section_title (:title props)]
+    [:div.m-3
      content]]])
 
 (defn rich-list-item
   [item]
-  [:li {:class "mb-4"}
-   [:div {:class "row border-bottom"}
-    [:div {:class "p-3 col-xs-12 col-sm-6 col-md-7"}
-     [:div {:class "mb-1 fw-bold"}\[(:name item)\]]
-     [:div {:class "pr-4"
-            :dangerouslySetInnerHTML {:__html (:body item)}
-            :style {:text-align "justify" :padding-right "20px" :line-height "1.4"}}]]
-    [:div {:class "col-xs-12 col-sm-6 col-md-5 p-2" :style {:text-align "center"}}
+  [:li.mb-4
+   [:div.row.border-bottom
+    [:div.p-3.col-xs-12.col-sm-6.col-md-7
+     [:div.mb-1.fw-bold \[(:name item)\]]
+     [:div.pr-4 {:dangerouslySetInnerHTML {:__html (:body item)}
+                 :style {:text-align "justify" :padding-right "20px" :line-height "1.4"}}]]
+    [:div.col-xs-12.col-sm-6.col-md-5.p-2 {:style {:text-align "center"}}
      (when (:thumbnail item)
-       [:img
-        {:src (:thumbnail item)
-         :class "img-fluid thumb-container"}])
+       [:img.img-fluid.thumb-container
+        {:src (:thumbnail item)}])
      (when (:youtube item)
-       [:div {:class "video-con"}
+       [:div.video-con
         (parse-youtube item)])
      (when (:video item)
        [:div
