@@ -3,6 +3,8 @@
             [app.components.layouts :as layouts]
             [app.components.ibm-cds.tabs.tabs :as tabs]
             [app.components.ibm-cds.modal.modal :as modal]
+            [app.components.ibm-cds.button.button :as button]
+            [app.components.ibm-cds.accordion.accordion :as accordion]
             [reagent.core :as r]))
 
 (def mytabs [
@@ -39,8 +41,17 @@
                "Now is the time " [:a {:href "#"} "mylink"]]]
              [tabs/tab2 {:name "tab name 2" :value 2}
               [:div "Do you want to sing a song fiona?"]]]]]]]
-        [:div
+        [:div.row.no-gutters
+         [:div.col-sm-6
          [layouts/section-container {:title "IBM Carbon Modal Reagent Port"}
           [:div {:class "m-1 w-75"}
-           [:input {:type "button" :on-click #((when (false? @show-modal) (swap! show-modal not))) :value "Show Modal"}]
-           [modal/modal {:show show-modal  :title "My title" :label "This is the label"} "Now is the time for all good men ...."]]]]]]]])))
+           [button/button {:type "danger" :kind "tertiary" :on-click #((when (false? @show-modal) (swap! show-modal not)))} "Show Modal"]
+           [modal/modal {:show show-modal  :title "My title" :label "This is the label"} "Now is the time for all good men ...."]]]]
+        
+        [:div.col-sm-6
+         [layouts/section-container {:title "IBM  Carbon Accordian Reagent Port"}
+          [:div.m-1.w-75
+           [accordion/accordion {}
+            [:<>
+             [accordion/accordion-item {:title "Accordion item 1"} "Important safety tip... Its actually spelled Accordion not Accordian"]
+             [accordion/accordion-item {:title "Accordian item 2"} "Weird Al Yankovic is the all time master of Accordion... not Accordian"]]]]]]]]]]])))
