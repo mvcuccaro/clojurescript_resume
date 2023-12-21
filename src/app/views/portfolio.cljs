@@ -18,5 +18,5 @@
       (for [item (reduce conj (reverse @state/portfolio) static-items)] ^{:key (:id item)}
       [layouts/rich-list-item item])]]]])
 
-(state/search "/api/portfolio" state/portfolio)
+;(state/search "/api/portfolio" state/portfolio)
 
