@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "docker-build": "git describe --tags && docker build . -t docker.michaelcuccaro.com/cljs-mc-com:$(git describe --tags)",
     "sc": "shadow-cljs",
     "server": "shadow-cljs stop && shadow-cljs start",
     "repl": "shadow-cljs cljs-repl app",
