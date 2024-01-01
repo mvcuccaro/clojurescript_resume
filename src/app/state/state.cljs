@@ -6,6 +6,12 @@
 
 (def DEFAULT-ACTIVE-MENU-ITEM "about")
 
+;;State containers
+(def work-history (r/atom []))
+(def portfolio (r/atom []))
+(def docker-repositories (r/atom []))
+(def github-repositories (r/atom []))
+
 (defn init-active-menu-item
   "Set the active item based on the url"
   [menu-items]
@@ -15,13 +21,11 @@
         first
         :menu-id)))
 
-(def work-history (r/atom []))
-(def portfolio (r/atom []))
-
-(def active-menu-item (r/atom
-                       (or
-                        (init-active-menu-item menu/menu-links)
-                        DEFAULT-ACTIVE-MENU-ITEM))) ;;derive the current menu from the url OR set it to a default
+(def active-menu-item
+  (r/atom
+   (or
+    (init-active-menu-item menu/menu-links)
+    DEFAULT-ACTIVE-MENU-ITEM))) ;;derive the current menu from the url OR set it to a default
 
 (defn search [url state-container]
   (go (let [out (chan)
@@ -45,6 +49,8 @@
 
 ;;load data from api
 (let [searches [(search "/api/portfolio" portfolio)
-                (search "/api/work_history" work-history)]]
+                (search "/api/work_history" work-history)
+                (search "/api/docker_repositories" docker-repositories)
+                (search "/api/github_repositories" github-repositories)]]
       (search-batch searches #(println "done")))
     

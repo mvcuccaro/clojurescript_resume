@@ -6,6 +6,7 @@
               [app.views.sandbox :as sandbox]
               [app.views.resume :as resume]
               [app.views.portfolio :as portfolio]
+              [app.views.resources :as resources]
               [app.constants.menu :as menu]))
 
 
@@ -23,6 +24,7 @@
       "sandbox" sandbox/main
       "resume" resume/main
       "portfolio" portfolio/main
+      "resources" resources/main
       about/main)))
 
 

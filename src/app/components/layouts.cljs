@@ -30,7 +30,7 @@
    [:div.row.border-bottom
     [:div.p-3.col-xs-12.col-sm-6.col-md-7
      [:div.mb-1.fw-bold \[(:name item)\]]
-     [:div.pr-4 {:dangerouslySetInnerHTML {:__html (:body item)}
+     [:div.pr-4 {:dangerouslySetInnerHTML {:__html (or (:body item)(:description item))}
                  :style {:text-align "justify" :padding-right "20px" :line-height "1.4"}}]]
     [:div.col-xs-12.col-sm-6.col-md-5.p-2 {:style {:text-align "center"}}
      (when (:thumbnail item)
