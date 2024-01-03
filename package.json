@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "docker-build": "gitGetBranchOrTag && docker build . -t docker.michaelcuccaro.com/cljs-mc-com:$(gitGetBranchOrTag)",
+    "docker-build": "docker build . -t docker.michaelcuccaro.com/cljs-mc-com:$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)",
     "sc": "shadow-cljs",
     "server": "shadow-cljs stop && shadow-cljs start",
     "repl": "shadow-cljs cljs-repl app",
